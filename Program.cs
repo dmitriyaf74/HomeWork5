@@ -3,8 +3,8 @@
     internal class Program
     {
         private static string UserName = "";
-        private static string CommonCommands = "/start, /help, /info, /exit";
-        private static string AllCommands = "/start, /help, /info, /echo, /exit";
+        private const string CommonCommands = "/start, /help, /info, /exit";
+        private const string AllCommands = "/start, /help, /info, /echo, /exit";
 
 
 
@@ -20,6 +20,14 @@
                 Console.WriteLine(UserName + ", добро пожаловать");
                 Console.WriteLine(AllCommands);
             }
+        }
+
+        static void FakeSelect()
+        {
+            if (UserName == "")
+                Console.WriteLine("Вы ошиблись при наборе команды.");
+            else
+                Console.WriteLine(UserName + ", вы ошиблись при наборе команды.");
         }
 
         static void ShowVerInfo()
@@ -46,7 +54,6 @@
             do
             {
                 UserCommand = Console.ReadLine();
-                //Console.WriteLine(UserCommand);
                 UserCommandArr = UserCommand.Split(' ');
 
                 switch (UserCommandArr[0]) 
@@ -72,7 +79,7 @@
                             Console.WriteLine("");
                         break;
                     default:
-                        //ShowWelcome(UserName + " Вы ошиблись при наборе команды.");
+                        FakeSelect();
                         break;
                 }
 
