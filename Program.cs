@@ -46,7 +46,7 @@
         }
 
 
-        static void WhiteReadLide()
+        static void WaitReadLide()
         {
             string UserCommand = "";
             string[] UserCommandArr = { };
@@ -90,8 +90,8 @@
         static void Main(string[] args)
         {
             ShowWelcome();
-            
-            WhiteReadLide();
+
+            WaitReadLide();
         }
 
     }
